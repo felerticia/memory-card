@@ -55,3 +55,26 @@ html,body {
 .card__face--front {
   transform: rotateY(180deg);
 }
+
+
+.controls{
+  margin: 30px 5px 0 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+button {
+  border: 3px solid #35b08b;
+  color: #35b08b;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: none;
+  font-family: inherit;
+  font-size: 24px;
+  transition: color .3s, background-color .3s;
+  cursor: pointer;
+}
+button:hover{
+  background-color: #35b08b; ;
+  color: #003d2b;
+}

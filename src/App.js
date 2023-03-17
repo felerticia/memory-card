@@ -18,7 +18,10 @@ function App() {
             }))
             .sort(() => Math.random() - .5)
 
-    setCards(cards)
+    if (firstCard)
+      setFirstCard()
+
+    setTimeout(() =>setCards(cards),300)
   }
 
   const updateRevealedCards = index => {
@@ -72,7 +75,9 @@ function App() {
            updateRevealedCards={updateRevealedCards}/>
         ))}
       </div>
-
+      <div className="controls">
+        <button onClick={initGame}>New Game</button>
+      </div>
     </div>
   );
 }
