@@ -20,16 +20,18 @@ function App() {
   useEffect(() => initGame(),[])
   return (
     <div className="App">
-      {cards.map((card,i) => (
-        <div class={`card`}>
-          <div class="card__face card__face--front">
-              <img src={card.src} alt="card-front"  />
-          </div>
-          <div class="card__face card__face--back">
-              <img src="/pix/back.jpg" alt="card-back"/>
-          </div>
+      <div className="grid">
+        {cards.map((card,i) => (
+          <div class={`card`}>
+            <div class="card__face card__face--front">
+                <img src={card.src} alt="card-front"  />
+            </div>
+            <div class="card__face card__face--back">
+                <img src="/pix/back.jpg" alt="card-back"/>
+            </div>
+        </div>
+        ))}
       </div>
-      ))}
 
     </div>
   );
