@@ -38,6 +38,10 @@ function App() {
         setCards(updatedCards)
         reset()
       }
+      else{
+        setTimeout(reset, 1000)
+
+      }
     }
   }, [firstCard,secondCard,cards])
 
@@ -55,6 +59,11 @@ function App() {
            key={i}
            card={card} 
            index ={i}
+           isRevealed = {
+            card.revealed || 
+            firstCard === i || 
+            secondCard === i
+          }
            updateRevealedCards={updateRevealedCards}/>
         ))}
       </div>

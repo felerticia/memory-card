@@ -1,10 +1,10 @@
-const Card = ({card,index,updateRevealedCards}) => {
+const Card = ({card,index,isRevealed,updateRevealedCards}) => {
 
     const handleClick = () => {
         updateRevealedCards(index)
     }
 
-    return <div className={`card`}>
+    return <div className={`card ${isRevealed ? 'is-revealed' : ''}`}>
         <div className="card__face card__face--front">
             <img src={card.src} alt="card-front"  />
         </div>
