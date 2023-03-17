@@ -3,6 +3,8 @@ import './App.css';
 import Card from './Card';
 
 function App() {
+  const [firstCard,setFirstCard] = useState()
+  const [secondCard,setSecondCard] = useState()
   const [cards,setCards] = useState([])
 
   const initGame = () => {
@@ -17,7 +19,32 @@ function App() {
 
     setCards(cards)
   }
-  const updateRevealedCards = i => console.log(i);
+
+  const updateRevealedCards = index => {
+    if (firstCard)
+        setSecondCard(index)
+    else   
+        setFirstCard(index)
+  }
+
+  useEffect(() => {
+    if(firstCard!==undefined && secondCard!==undefined) {
+      if (cards[firstCard].src === cards[secondCard].src){
+        const updatedCards =
+        cards.map((card,i) => ({
+            ...card,
+            revealed : card.revealed || i === firstCard || i === secondCard
+        }))
+        setCards(updatedCards)
+        reset()
+      }
+    }
+  }, [firstCard,secondCard,cards])
+
+  const reset = () => {
+    setFirstCard()
+    setSecondCard()
+  }
 
   useEffect(() => initGame(),[])
   return (

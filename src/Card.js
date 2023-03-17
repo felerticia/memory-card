@@ -4,14 +4,14 @@ const Card = ({card,index,updateRevealedCards}) => {
         updateRevealedCards(index)
     }
 
-    return <div class={`card`}>
-            <div class="card__face card__face--front">
-                <img src={card.src} alt="card-front"  />
-            </div>
-            <div class="card__face card__face--back">
-                <img src="/pix/back.jpg" alt="card-back" onClick={handleClick}/>
-            </div>
+    return <div className={`card`}>
+        <div className="card__face card__face--front">
+            <img src={card.src} alt="card-front"  />
         </div>
+        <div className="card__face card__face--back">
+            <img src="/pix/back.jpg" alt="card-back" onClick={handleClick}/>
+        </div>
+    </div>
 
 }
 
