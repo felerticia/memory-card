@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Card from './Card';
 
 function App() {
   const [cards,setCards] = useState([])
@@ -16,20 +17,18 @@ function App() {
 
     setCards(cards)
   }
+  const updateRevealedCards = i => console.log(i);
 
   useEffect(() => initGame(),[])
   return (
     <div className="App">
       <div className="grid">
         {cards.map((card,i) => (
-          <div class={`card`}>
-            <div class="card__face card__face--front">
-                <img src={card.src} alt="card-front"  />
-            </div>
-            <div class="card__face card__face--back">
-                <img src="/pix/back.jpg" alt="card-back"/>
-            </div>
-        </div>
+           <Card 
+           key={i}
+           card={card} 
+           index ={i}
+           updateRevealedCards={updateRevealedCards}/>
         ))}
       </div>
 
