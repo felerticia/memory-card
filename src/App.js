@@ -7,6 +7,7 @@ function App() {
   const [secondCard,setSecondCard] = useState()
   const [cards,setCards] = useState([])
   const [disabled,setDisabled] = useState(false)
+  const [turn,setTurn] = useState(0)
 
   const initGame = () => {
     const cards = 
@@ -22,10 +23,13 @@ function App() {
       setFirstCard()
 
     setTimeout(() =>setCards(cards),300)
+    setTurn(0)
   }
 
   const updateRevealedCards = index => {
     if (disabled) return
+    
+    setTurn(turn+1)
 
     if (firstCard)
         setSecondCard(index)
@@ -77,7 +81,8 @@ function App() {
       </div>
       <div className="controls">
         <button onClick={initGame}>New Game</button>
-      </div>
+        <p>Turn: {turn}</p>
+       </div>
     </div>
   );
 }
