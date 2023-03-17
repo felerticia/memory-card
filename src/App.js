@@ -6,6 +6,7 @@ function App() {
   const [firstCard,setFirstCard] = useState()
   const [secondCard,setSecondCard] = useState()
   const [cards,setCards] = useState([])
+  const [disabled,setDisabled] = useState(false)
 
   const initGame = () => {
     const cards = 
@@ -21,6 +22,8 @@ function App() {
   }
 
   const updateRevealedCards = index => {
+    if (disabled) return
+
     if (firstCard)
         setSecondCard(index)
     else   
@@ -29,6 +32,7 @@ function App() {
 
   useEffect(() => {
     if(firstCard!==undefined && secondCard!==undefined) {
+      setDisabled(true)
       if (cards[firstCard].src === cards[secondCard].src){
         const updatedCards =
         cards.map((card,i) => ({
@@ -48,7 +52,8 @@ function App() {
   const reset = () => {
     setFirstCard()
     setSecondCard()
-  }
+    setDisabled(false)
+   }
 
   useEffect(() => initGame(),[])
   return (
