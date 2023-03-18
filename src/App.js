@@ -31,7 +31,7 @@ function App() {
     
     setTurn(turn+1)
 
-    if (firstCard)
+    if (firstCard!==undefined)
         setSecondCard(index)
     else   
         setFirstCard(index)
